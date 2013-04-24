@@ -1,10 +1,43 @@
 # = Class graylog2::params
 #
 class graylog2::params {
-  # ElasticSearch
+  ## Config file: graylog2.conf
+  # Syslog
+  $syslog_enable_tcp     = false
+  $syslog_enable_udp     = true
+  $syslog_listen_address = '0.0.0.0'
+  $syslog_listen_port    = '514'
+
+  # UDP syslog and UDP GELF
+  $udp_recvbuffer_sizes = '1048576'
+
+  # MongoDB Configuration
+  $mongodb_useauth         = false
+  $mongodb_user            = 'grayloguser'
+  $mongodb_password        = '123'
+  $mongodb_host            = '127.0.0.1'
+  $mongodb_database        = 'graylog2'
+  $mongodb_port            = '27017'
+  $mongodb_max_connections = '100'
+
+  # Graylog Extended Log Format (GELF)
+  $gelf                = true
+  $gelf_listen_address = '0.0.0.0'
+  $gelf_listen_port    = '12201'
+
+  # AMQP
+  $amqp_enabled     = false
+  $amqp_host        = 'localhost'
+  $amqp_port        = '5672'
+  $amqp_username    = 'guest'
+  $amqp_password    = 'guest'
+  $amqp_virtualhost = '/'
+
+  ## Config file: elasticsearch.yml
   $es_clustername = 'graylog2'
   $es_nodename    = 'graylog2-server'
   $es_tcpport     = '9350'
+
 
   case $::operatingsystem {
     'Debian': {

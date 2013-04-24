@@ -21,9 +21,13 @@ class graylog2::config {
       owner  => $::graylog2::daemon_user,
       group  => $::graylog2::daemon_group;
 
+    "${::graylog2::config_dir}/graylog2.conf":
+      ensure  => present,
+      content => template('graylog2/graylog2.conf.erb');
+
     "${::graylog2::config_dir}/elasticsearch.yml":
       ensure  => present,
-      content => template('graylog2/elasticsearch.yml.erb'),
+      content => template('graylog2/elasticsearch.yml.erb');
   }
 }
 
