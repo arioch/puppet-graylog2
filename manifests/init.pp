@@ -11,7 +11,6 @@ class graylog2 (
   $daemon_group       = $::graylog2::params::daemon_group,
   $daemon_user        = $::graylog2::params::daemon_user,
   $log_dir            = $::graylog2::params::log_dir,
-  $manage_repo        = $::graylog2::params::manage_repo,
   $pid_file           = $::graylog2::params::pid_file,
   $pkg_deps           = $::graylog2::params::pkg_deps,
   $pkg_ensure         = $::graylog2::params::pkg_ensure,

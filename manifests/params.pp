@@ -1,7 +1,7 @@
 # = Class graylog2::params
 #
 class graylog2::params {
-  $manage_repo = false
+
 
   case $::operatingsystem {
     'Debian': {
