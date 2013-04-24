@@ -1,7 +1,10 @@
 # = Class graylog2::params
 #
 class graylog2::params {
-
+  # ElasticSearch
+  $es_clustername = 'graylog2'
+  $es_nodename    = 'graylog2-server'
+  $es_tcpport     = '9350'
 
   case $::operatingsystem {
     'Debian': {
