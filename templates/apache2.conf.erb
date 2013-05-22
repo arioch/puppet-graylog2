@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+  PassengerRoot /usr
+  PassengerRuby /usr/bin/ruby
+  RailsEnv 'production'
+
+  ServerName <%= server_name %>
+  DocumentRoot /usr/share/graylog2-web/public
+
+  <Directory /usr/share/graylog2-web/public>
+    Allow from all
+    Options -MultiViews
+  </Directory>
+
+  ErrorLog /var/log/apache2/graylog2_error.log
+  CustomLog /var/log/apache2/graylog2_access.log combined
+  LogLevel warn
+</VirtualHost>
