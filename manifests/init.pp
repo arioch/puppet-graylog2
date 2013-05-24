@@ -1,4 +1,4 @@
-# = Class graylog2
+# == Class graylog2
 #
 class graylog2 (
   $amqp_enabled            = $::graylog2::params::amqp_enabled,

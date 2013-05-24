@@ -1,4 +1,4 @@
-# = Class graylog2::params
+# == Class graylog2::params
 #
 class graylog2::params {
   ## Config file: graylog2.conf

@@ -1,4 +1,4 @@
-# = Class graylog2
+# == Class graylog2
 #
 class graylog2::service {
   service { $::graylog2::service_name:

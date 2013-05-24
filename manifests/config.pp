@@ -1,4 +1,4 @@
-# = Class graylog2::config
+# == Class graylog2::config
 #
 class graylog2::config {
   File {

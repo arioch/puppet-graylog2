@@ -1,4 +1,4 @@
-# = Class graylog2::install
+# == Class graylog2::install
 #
 class graylog2::install {
   package { $::graylog2::pkg_list:
