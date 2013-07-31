@@ -6,8 +6,8 @@ is_master = true
 plugin_dir = plugin
 
 # On which port (UDP) should we listen for Syslog messages? (Standard: 514)
-syslog_listen_port = <%= syslog_listen_port %>
-syslog_listen_address = <%= syslog_listen_address %>
+syslog_listen_port = <%= @syslog_listen_port %>
+syslog_listen_address = <%= @syslog_listen_address %>
 syslog_enable_udp = <% if @syslog_enable_udp %>true<% else %>false<% end %>
 syslog_enable_tcp = <% if @syslog_enable_tcp %>true<% else %>false<% end %>
 # Standard delimiter is LF. You can force using a NUL byte delimiter using this option.
@@ -20,10 +20,10 @@ udp_recvbuffer_sizes = 1048576
 
 # Embedded elasticsearch configuration file
 # pay attention to the working directory of the server, maybe use an absolute path here
-elasticsearch_config_file = <%= config_dir %>/elasticsearch.yml
+elasticsearch_config_file = <%= @config_dir %>/elasticsearch.yml
 elasticsearch_max_docs_per_index = 20000000
 
-elasticsearch_index_prefix = <%= es_clustername %>
+elasticsearch_index_prefix = <%= @es_clustername %>
 
 # How many indices do you want to keep? If the number of indices exceeds this number, older indices will be dropped.
 # elasticsearch_max_number_of_indices*elasticsearch_max_docs_per_index=total number of messages in your setup
@@ -83,15 +83,15 @@ ring_size = 1024
 
 # MongoDB Configuration
 mongodb_useauth = <% if @mongodb_useauth %>true<% else %>false<% end %>
-mongodb_user = <%= mongodb_user %>
-mongodb_password = <%= mongodb_password %>
-mongodb_host = <%= mongodb_host %>
-mongodb_database = <%= mongodb_database %>
-mongodb_port = <%= mongodb_port %>
+mongodb_user = <%= @mongodb_user %>
+mongodb_password = <%= @mongodb_password %>
+mongodb_host = <%= @mongodb_host %>
+mongodb_database = <%= @mongodb_database %>
+mongodb_port = <%= @mongodb_port %>
 #mongodb_replica_set = localhost:27017,localhost:27018,localhost:27019
 
 # Raise this according to the maximum connections your MongoDB server can handle if you encounter MongoDB connection problems.
-mongodb_max_connections = <%= mongodb_max_connections %>
+mongodb_max_connections = <%= @mongodb_max_connections %>
 
 # Number of threads allowed to be blocked by MongoDB connections multiplier. Default: 5
 # If mongodb_max_connections is 100, and mongodb_threads_allowed_to_block_multiplier is 5, then 500 threads can block. More than that and an exception will be thrown.
@@ -100,20 +100,20 @@ mongodb_threads_allowed_to_block_multiplier = 5
 
 # Graylog Extended Log Format (GELF)
 use_gelf = <% if @gelf %>true<% else %>false<% end %>
-gelf_listen_address = <%= gelf_listen_address %>
-gelf_listen_port = <%= gelf_listen_port %>
+gelf_listen_address = <%= @gelf_listen_address %>
+gelf_listen_port = <%= @gelf_listen_port %>
 
 # Drools Rule File (Use to rewrite incoming log messages)
 # See: http://support.torch.sh/help/kb/graylog2-server/custom-message-rewritingprocessing
-# rules_file = <%= config_dir %>.d/rules/graylog2.drl
+# rules_file = <%= @config_dir %>.d/rules/graylog2.drl
 
 # AMQP
 amqp_enabled = <% if @amqp_enabled %>true<% else %>false<% end %>
-amqp_host = <%= amqp_host %>
-amqp_port = <%= amqp_port %>
-amqp_username = <%= amqp_username %>
-amqp_password = <%= amqp_password %>
-amqp_virtualhost = <%= amqp_virtualhost %>
+amqp_host = <%= @amqp_host %>
+amqp_port = <%= @amqp_port %>
+amqp_username = <%= @amqp_username %>
+amqp_password = <%= @amqp_password %>
+amqp_virtualhost = <%= @amqp_virtualhost %>
 
 # HTTP input
 # http://support.torch.sh/help/kb/graylog2-server/using-the-gelf-http-input

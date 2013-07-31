@@ -1,8 +1,8 @@
 # this must be the same as for your elasticsearch cluster
-cluster.name: <%= es_clustername %>
+cluster.name: <%= @es_clustername %>
 
 # you could also leave this out, but makes it easier to identify the graylog2 client instance
-node.name: "<%= es_nodename %>"
+node.name: "<%= @es_nodename %>"
 
 # we don't want the graylog2 client to store any data, or be master node
 node.master: false
@@ -11,7 +11,7 @@ node.data: false
 # you might need to bind to a certain IP address, do that here
 #network.host: 172.24.0.14
 # use a different port if you run multiple elasticsearch nodes on one machine
-transport.tcp.port: <%= es_tcpport %>
+transport.tcp.port: <%= @es_tcpport %>
 
 # we don't need to run the embedded HTTP server here
 http.enabled: false
